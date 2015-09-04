@@ -147,7 +147,7 @@
                     
             });
             
-            $( '.delete_form_element' ).click( function( event ){
+            $( '.delete_survey_element' ).click( function( event ){
                 formelement_id = $( this ).closest( '.formelement' ).attr('id');
                 event.preventDefault();
                 questions_delete_formelement_dialog.dialog( 'open' );
