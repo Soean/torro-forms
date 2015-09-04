@@ -11,8 +11,10 @@ Drag & drop your survey in the WordPress way!
 == Description ==
 
 >**Drag & drop your survey in the WordPress way!**
->
->It never felt better to create your survey like with this plugin. Do your survey and own the survey data. This is not software as a service, Questions is a totally independent and free plugin.
+
+> !!! Attention !!! Questions will not be developed further as "Questions". Questions will change from a pure Survey Plugin to a Formbuilder. But no worry, this will not downgrade any functions and you will not loose any of your Surveys. Further informations are coming the next weeks.
+
+It never felt better to create your survey like with this plugin. Do your survey and own the survey data. This is not software as a service, Questions is a totally independent and free plugin.
 
 **Elements to drop**
 
@@ -72,6 +74,9 @@ twitter: http://twitter.com/awsmug - GitHub: https://github.com/awsmug
 7. **Setup templates for inviting and remembering mails**
 
 == Changelog ==
+
+= 1.0.0 beta 20 =
+* Fixed Bug on not deletable Form elements
 
 = 1.0.0 beta 19 =
 * Added russian language files (Thanks to [@kosm])

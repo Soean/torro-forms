@@ -2,8 +2,8 @@
 /*
  * Plugin Name:  Questions
  * Plugin URI:   http://www.awesome.ug
- * Description:  Drag & drop your survey/poll with the WordPress Questions plugin.
- * Version:      1.0.0 beta 19
+ * Description:  Drag & drop your survey/poll with the WordPress Questions plugin. <strong>!!! Attention !!!</strong> Questions will not be developed further as "Questions". Questions will change from a pure Survey Plugin to a Formbuilder. But no worry, this will not downgrade any functions and you will not loose any of your Surveys. Further informations are coming the next weeks.
+ * Version:      1.0.0 beta 20
  * Author:       awesome.ug
  * Author URI:   http://www.awesome.ug
  * Author Email: contact@awesome.ug
