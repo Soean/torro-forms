@@ -492,9 +492,13 @@ class Torro_Form extends Torro_Instance_Base {
 			'form_id'	=> $this->id,
 			'number'	=> -1,
 		);
+		$sorted_query_args = array_merge( $query_args, array(
+			'orderby'		=> 'sort',
+			'order'			=> 'ASC',
+		) );
 
-		$this->containers = torro()->containers()->query( $query_args );
-		$this->elements = torro()->elements()->query( $query_args );
+		$this->containers = torro()->containers()->query( $sorted_query_args );
+		$this->elements = torro()->elements()->query( $sorted_query_args );
 		$this->participants = torro()->participants()->query( $query_args );
 	}
 
@@ -513,7 +517,7 @@ class Torro_Form extends Torro_Instance_Base {
 			$func = 'wp_update_post';
 		}
 
-		$post['post_type'] = 'torro-forms';
+		$post['post_type'] = 'torro_form';
 		$post['post_title'] = $this->title;
 
 		return call_user_func( $func, $post_data, true );
