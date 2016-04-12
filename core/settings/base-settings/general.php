@@ -65,7 +65,7 @@ final class Torro_General_Settings extends Torro_Settings {
 		$this->settings = array(
 			'disclaimer'	=> array(
 				'title'			=> __( 'Welcome to Torro Forms!', 'torro-forms' ),
-				'description'	=> __( 'You want to build any forms in a easy way? Torro Forms will help you to do it in the very easy way with ton of options.', 'torro-forms' ),
+				'description'	=> __( 'You want to build forms in an easy way? Torro Forms will help you do it quickly, yet with tons of options.', 'torro-forms' ),
 				'type'			=> 'disclaimer'
 			),
 			'modules_title'	=> array(
@@ -112,10 +112,19 @@ final class Torro_General_Settings extends Torro_Settings {
 			    'title'			=> __( 'CSS', 'torro-forms' ),
 			    'type'			=> 'checkbox',
 			    'values'        => array(
-				    'show_css'       => __( 'Include Torro Forms CSS on frontend.', 'torro-forms' )
+				    'show_css'       => __( 'Include Torro Forms CSS on frontend?', 'torro-forms' )
 			    ),
 			    'default'       => array( 'show_css' )
-			)
+			),
+		    'hard_uninstall'=> array(
+			    'title'			=> __( 'Hard Uninstall', 'torro-forms' ),
+			    'description'	=> __( '<strong>Use this setting with extreme caution</strong> as, when it is enabled, removing the plugin will remove all form content from your site forever.', 'torro-forms' ),
+			    'type'			=> 'checkbox',
+			    'values'        => array(
+				    '1'       		=> __( 'Perform a hard uninstall when the plugin is removed?', 'torro-forms' )
+			    ),
+			    'default'       => array( '0' )
+			),
 		);
 
 		torro()->settings()->get_registered( 'general' )->add_settings_field_arr( $settings_arr );
