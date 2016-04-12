@@ -1,24 +1,22 @@
 <?php
 
-require_once( '../../../../wp-load.php' );
+require_once( '../phpunit.php' );
 
-class Torro_Superfunctions_Tests extends PHPUnit_Framework_TestCase {
-
-	function createForm(){
+class Torro_Superfunctions_Form_Tests extends Torro_Superfunctions_Tests {
+	function create_form(){
 		$args = array(
 			'title' => 'Testing superfunctions',
-			'content' => 'Testing superfunctions'
 		);
 
 		$form = torro()->forms()->create( $args );
 
-		$this->p( $form );
+		// $this->debug( $form );
 		$this->assertTrue( ! is_wp_error( $form ) );
 
 		return $form;
 	}
 
-	function updateForm( $form ){
+	function update_form( $form ){
 		$args = array(
 			'title' => 'Changing title',
 			'content' => 'Changing content'
@@ -26,23 +24,19 @@ class Torro_Superfunctions_Tests extends PHPUnit_Framework_TestCase {
 
 		$form = torro()->forms()->update( $form->id, $args );
 
-		$this->p( $form );
+		// $this->debug( $form );
 		$this->assertTrue( ! is_wp_error( $form ) );
 
 		return $form;
 	}
 
-	function deleteForm( $form ){
+	function delete_form( $form ){
 		$this->assertTrue( torro()->forms()->delete( $form->id ) );
 	}
 
 	function testForms(){
-		$form = $this->createForm();
-		$form = $this->updateForm( $form );
-		$this->deleteForm( $form );
-	}
-
-	function p( $value ){
-		fwrite( STDERR, print_r( $value, TRUE ) );
+		$form = $this->create_form();
+		$form = $this->update_form( $form );
+		$this->delete_form( $form );
 	}
 }
