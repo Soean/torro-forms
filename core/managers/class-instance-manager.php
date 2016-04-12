@@ -48,6 +48,7 @@ abstract class Torro_Instance_Manager extends Torro_Manager {
 		} else {
 			$superior_id = 0;
 		}
+
 		$id = $instance->update( $args );
 		if ( is_wp_error( $id ) ) {
 			return $id;

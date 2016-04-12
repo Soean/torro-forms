@@ -10,7 +10,7 @@ class Torro_Superfunctions_Form_Tests extends Torro_Superfunctions_Tests {
 
 		$form = torro()->forms()->create( $args );
 
-		// $this->debug( $form );
+		$this->debug( $form );
 		$this->assertTrue( ! is_wp_error( $form ) );
 
 		return $form;
@@ -36,7 +36,7 @@ class Torro_Superfunctions_Form_Tests extends Torro_Superfunctions_Tests {
 
 	function testForms(){
 		$form = $this->create_form();
-		$form = $this->update_form( $form );
-		$this->delete_form( $form );
+		// $form = $this->update_form( $form );
+		// $this->delete_form( $form );
 	}
 }
