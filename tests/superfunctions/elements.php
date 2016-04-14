@@ -1,17 +1,17 @@
 <?php
 
-require_once( '../phpunit.php' );
+require_once( dirname( dirname( __FILE__  ) ) . '/phpunit.php'  );
 
 class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 	function create_element( $container_id ) {
 		$args = array(
 			'type' => 'textfield',
 			'label' => 'Test Element',
+			'form_id' => 1, // Just for testing have to be removed
 			'sort' => 0
 		);
 
 		$element = torro()->elements()->create( $container_id, $args );
-		$this->debug( $element );
 		$this->assertTrue( ! is_wp_error( $element ) );
 		return $element;
 	}
@@ -33,10 +33,7 @@ class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 
 		$element = torro()->elements()->move( $element->id, $container->id );
 
-		// $this->debug( $element );
 		$this->assertTrue( ! is_wp_error( $element ) );
-
-		$element = torro()->elements()->move( $element->id, $container_id );
 
 		torro()->containers()->delete( $container->id );
 
@@ -47,7 +44,6 @@ class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 		$container = torro()->containers()->create( array( 'label' => 'Copy an element to me' ) );
 		$element = torro()->elements()->copy( $element->id, $container->id );
 
-		// $this->debug( $element );
 		$this->assertTrue( ! is_wp_error( $element ) );
 
 		torro()->containers()->delete( $container->id );

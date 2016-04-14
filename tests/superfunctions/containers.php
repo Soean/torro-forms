@@ -1,6 +1,6 @@
 <?php
 
-require_once( '../phpunit.php' );
+require_once( dirname( dirname( __FILE__  ) ) . '/phpunit.php' );
 
 class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 	function create_container( $form_id ){

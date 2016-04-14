@@ -1,6 +1,6 @@
 <?php
 
-require_once( '../phpunit.php' );
+require_once( dirname( dirname( __FILE__  ) ) . '/phpunit.php' );
 
 class Torro_Superfunctions_Form_Tests extends Torro_Superfunctions_Tests {
 	function create_form(){
@@ -34,7 +34,11 @@ class Torro_Superfunctions_Form_Tests extends Torro_Superfunctions_Tests {
 
 		$this->assertTrue( torro()->forms()->exists( $form->id ) );
 
-		$this->delete_form( $form->id );
-		$this->delete_form( $form_new->id );
+		$form = $this->delete_form( $form->id );
+		$form_new = $this->delete_form( $form_new->id );
+
+		// print_r( torro()->forms()->exists( $form->id )  );
+		$this->assertTrue( torro()->forms()->exists( 923809280998 ) );
+		// $this->assertFalse( torro()->forms()->exists( $form_new->id ) );
 	}
 }
