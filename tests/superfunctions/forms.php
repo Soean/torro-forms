@@ -15,14 +15,14 @@ class Torro_Superfunctions_Form_Tests extends Torro_Superfunctions_Tests {
 		return $form;
 	}
 
-	function delete_form( $form_id ){
-		$form = torro()->forms()->delete( $form_id );
+	function copy_form( $form_id ){
+		$form = torro()->forms()->copy( $form_id );
 		$this->assertTrue( ! is_wp_error( $form ) );
 		return $form;
 	}
 
-	function copy_form( $form_id ){
-		$form = torro()->forms()->copy( $form_id );
+	function delete_form( $form_id ){
+		$form = torro()->forms()->delete( $form_id );
 		$this->assertTrue( ! is_wp_error( $form ) );
 		return $form;
 	}

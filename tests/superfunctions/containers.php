@@ -39,6 +39,12 @@ class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 		return $container;
 	}
 
+	function delete_container( $container_id ){
+		$container = torro()->containers()->delete( $container_id );
+		$this->assertTrue( ! is_wp_error( $container ) );
+		return $container;
+	}
+
 	function test_containers() {
 		$form = torro()->forms()->create( array( 'title' => 'Testing containers' ) );
 
@@ -49,6 +55,12 @@ class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 		$this->assertTrue( torro()->containers()->exists( $container->id ) );
 
 		$form_new = torro()->forms()->create( array( 'title' => 'Copy to me' ) );
-		$container = $this->move_container( $container_new->id, $form_new->id );
+		$container_new = $this->move_container( $container_new->id, $form_new->id );
+
+		$this->delete_container( $container->id );
+		$this->delete_container( $container_new->id );
+
+		torro()->forms()->delete( $form->id );
+		torro()->forms()->delete( $form_new->id );
 	}
 }
