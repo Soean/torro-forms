@@ -7,7 +7,6 @@ class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 		$args = array(
 			'type' => 'textfield',
 			'label' => 'Test Element',
-			'form_id' => 1, // Just for testing have to be removed
 			'sort' => 0
 		);
 
