@@ -3,48 +3,27 @@
 require_once( '../phpunit.php' );
 
 class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
-	function test_elements() {
-		$form = torro()->forms()->create( array( 'label' => 'Testing superfunctions' ) );
-		$container = torro()->containers()->create( $form->id, array( 'label' => 'Container' ) );
-
-		$this->debug( $form );
-		$this->debug( $container );
-
-		$element = $this->create_element( $container->id );
-		$element = $this->update_element( $element );
-		$element = $this->copy_element( $container->id, $element );
-		$element = $this->move_element( $container->id, $element );
-
-		$this->assertTrue( torro()->elements()->exists( $element->id ) );
-		// $this->delete_element( $form->id, $element );
-		// torro()->forms()->delete( $form->id );
-	}
-
 	function create_element( $container_id ) {
 		$args = array(
 			'type' => 'textfield',
-			'label' => 'Element'
+			'label' => 'Test Element',
+			'sort' => 0
 		);
 
 		$element = torro()->elements()->create( $container_id, $args );
-
-		// $this->debug( $element );
+		$this->debug( $element );
 		$this->assertTrue( ! is_wp_error( $element ) );
-
 		return $element;
 	}
 
 	function update_element( $element ){
 		$args = array(
 			'type' => 'textfield',
-			'label' => 'Updated Element'
+			'label' => 'Renamed Element'
 		);
 
 		$element = torro()->elements()->update( $element->id, $args );
-
-		// $this->debug( $element );
 		$this->assertTrue( ! is_wp_error( $element ) );
-
 		return $element;
 	}
 
@@ -83,6 +62,20 @@ class Torro_Superfunctions_Containers_Tests extends Torro_Superfunctions_Tests {
 
 		// $this->debug( $result );
 		$this->assertTrue( ! is_wp_error( $result ) );
+	}
+
+	function test_elements() {
+		$form = torro()->forms()->create( array( 'title' => 'Testing Elements' ) );
+		$container = torro()->containers()->create( $form->id, array( 'label' => 'A Container', 'sort' => 0  ) );
+
+		$element = $this->create_element( $container->id );
+		//$element = $this->update_element( $element );
+		// $element = $this->copy_element( $container->id, $element );
+		// $element = $this->move_element( $container->id, $element );
+
+		// $this->assertTrue( torro()->elements()->exists( $element->id ) );
+		// $this->delete_element( $form->id, $element );
+		// torro()->forms()->delete( $form->id );
 	}
 }
 
